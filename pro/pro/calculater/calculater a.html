@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Advanced Calculator</title>
+
+<!-- ===== CSS: BEAUTIFUL GLASSMORPHIC DESIGN ===== -->
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #6d5dfc, #46c2ff);
+    }
+
+    .calculator {
+        width: 400px;
+        height: 500px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    #display {
+        width: 100%;
+        height: 60px;
+        border: none;
+        outline: none;
+        background: rgba(255,255,255,0.2);
+        color: #fff;
+        font-size: 28px;
+        text-align: right;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    }
+
+    button {
+        padding: 20px;
+        font-size: 20px;
+        border: none;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.3);
+        color: #fff;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background: rgba(255,255,255,0.5);
+    }
+
+    .equal {
+        background: #ff6b6b;
+    }
+
+    .clear, .del {
+        background: #ffcc00;
+    }
+</style>
+</head>
+
+<body>
+<div class="calculator">
+    <!-- DISPLAY -->
+    <input type="text" id="display" disabled>
+
+    <!-- BUTTON GRID -->
+    <div class="buttons">
+        <!-- Row 1 -->
+        <button class="clear" onclick="clearDisplay()">C</button>
+        <button class="del" onclick="del()">DEL</button>
+        <button onclick="percent()">%</button>
+        <button onclick="insert('/')">÷</button>
+        <button onclick="insert('*')">×</button>
+
+        <!-- Row 2 -->
+        <button onclick="insert('7')">7</button>
+        <button onclick="insert('8')">8</button>
+        <button onclick="insert('9')">9</button>
+        <button onclick="insert('-')">−</button>
+        <button onclick="insert('+')">+</button>
+
+        <!-- Row 3 -->
+        <button onclick="insert('4')">4</button>
+        <button onclick="insert('5')">5</button>
+        <button onclick="insert('6')">6</button>
+        <button onclick="sinCalc()">sin</button>
+        <button onclick="cosCalc()">cos</button>
+
+        <!-- Row 4 -->
+        <button onclick="insert('1')">1</button>
+        <button onclick="insert('2')">2</button>
+        <button onclick="insert('3')">3</button>
+        <button onclick="tanCalc()">tan</button>
+        <button onclick="logCalc()">log</button>
+
+        <!-- Row 5 -->
+        <button onclick="insert('0')">0</button>
+        <button onclick="insert('.')">.</button>
+        <button onclick="squareRoot()">√</button>
+        <button class="equal" onclick="calculate()">=</button>
+
+        <!-- Row 6: Advanced Functions -->
+        <button onclick="square()">x²</button>
+        <button onclick="factorial()">n!</button>
+        <button onclick="power()">x^y</button>
+        <button onclick="pi()">π</button>
+        <button onclick="lnCalc()">ln</button>
+
+        <!-- Row 7: Additional Functions -->
+        <button onclick="exp()">e^x</button>
+        <button onclick="absCalc()">|x|</button>
+        <button onclick="toRadButton()">deg → rad</button>
+        <button onclick="toDegButton()">rad → deg</button>
+        <button onclick="inverse()">1/x</button>
+
+        <!-- Row 8: Inverse Trig Functions -->
+        <button onclick="asinCalc()">asin</button>
+        <button onclick="acosCalc()">acos</button>
+        <button onclick="atanCalc()">atan</button>
+        <button onclick="rand()">Random</button>
+    </div>
+</div>
+
+<!-- ===== JAVASCRIPT FUNCTIONS (20 TOTAL) ===== -->
+<script>
+    const display = document.getElementById("display");
+
+    // 1. Insert characters into display
+    function insert(num) {
+        display.value += num;
+    }
+
+    // 2. Clear display
+    function clearDisplay() {
+        display.value = "";
+    }
+
+    // 3. Delete last character
+    function del() {
+        display.value = display.value.slice(0, -1);
+    }
+
+    // 4. Basic calculation (eval function)
+    function calculate() {
+        try {
+            display.value = eval(display.value);
+        } catch {
+            display.value = "Error";
+        }
+    }
+
+    // 5. Percentage calculation
+    function percent() { 
+        display.value = eval(display.value) / 100; 
+    }
+
+    // 6. Square root
+    function squareRoot() { 
+        display.value = Math.sqrt(eval(display.value)); 
+    }
+
+    // 7. Square
+    function square() {
+        display.value = Math.pow(eval(display.value), 2);
+    }
+
+    // 8. Power x^y
+    function power() {
+        display.value += "**";
+    }
+
+    // 9. Sine (in radians)
+    function sinCalc() {
+        display.value = Math.sin(toRad(eval(display.value)));
+    }
+
+    // 10. Cosine (in radians)
+    function cosCalc() {
+        display.value = Math.cos(toRad(eval(display.value)));
+    }
+
+    // 11. Tangent (in radians)
+    function tanCalc() {
+        display.value = Math.tan(toRad(eval(display.value)));
+    }
+
+    // 12. Logarithm base 10 (log(x))
+    function logCalc() {
+        display.value = Math.log10(eval(display.value));
+    }
+
+    // 13. Natural Logarithm (ln(x))
+    function lnCalc() {
+        display.value = Math.log(eval(display.value));
+    }
+
+    // 14. Insert π
+    function pi() {
+        display.value += Math.PI;
+    }
+
+    // 15. Exponential e^x
+    function exp() {
+        display.value = Math.exp(eval(display.value));
+    }
+
+    // 16. Absolute value (|x|)
+    function absCalc() {
+        display.value = Math.abs(eval(display.value));
+    }
+
+    // 17. Inverse (1/x)
+    function inverse() {
+        display.value = 1 / eval(display.value);
+    }
+
+    // 18. Factorial calculation (n!)
+    function factorial() {
+        let n = eval(display.value);
+        if (n < 0 || !Number.isInteger(n)) {
+            display.value = "Error";
+            return;
+        }
+        let f = 1;
+        for (let i = 1; i <= n; i++) f *= i;
+        display.value = f;
+    }
+
+    // 19. Convert degrees to radians
+    function toRad(x) {
+        return x * Math.PI / 180;
+    }
+
+    // 20. Convert radians to degrees
+    function toDeg(x) {
+        return x * 180 / Math.PI;
+    }
+
+    // 21. Convert degrees to radians (button helper)
+    function toRadButton() {
+        display.value = toRad(eval(display.value));
+    }
+
+    // 22. Convert radians to degrees (button helper)
+    function toDegButton() {
+        display.value = toDeg(eval(display.value));
+    }
+
+    // 23. Inverse Sine (asin(x))
+    function asinCalc() {
+        display.value = Math.asin(eval(display.value)) * 180 / Math.PI;
+    }
+
+    // 24. Inverse Cosine (acos(x))
+    function acosCalc() {
+        display.value = Math.acos(eval(display.value)) * 180 / Math.PI;
+    }
+
+    // 25. Inverse Tangent (atan(x))
+    function atanCalc() {
+        display.value = Math.atan(eval(display.value)) * 180 / Math.PI;
+    }
+
+    // 26. Random number
+    function rand() {
+        display.value = Math.random();
+    }
+</script>
+
+</body>
+</html>

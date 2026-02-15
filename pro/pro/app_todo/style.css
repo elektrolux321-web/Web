@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  outline: none;
+}
+
+body {
+  min-width: 300px;
+  height: 100vh;
+  width: 100vw;
+  min-width: 330px;
+  background-color: #ecececf8;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  overflow-x: hidden;
+}
+
+.main {
+  height: 29vh;
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 4px;
+
+  & #inp {
+    padding: 4px;
+    height: 50px;
+    width: 530px;
+    border-radius: 5px;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 20px;
+    color: #504a4a;
+
+    &::placeholder {
+      color: #504a4a;
+    }
+  }
+}
+
+form {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  height: 55px;
+  width: 585px;
+  gap: 4px;
+  border-radius: 8px;
+  background-color: #fff;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+h1 {
+  display: grid;
+  align-items: end;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 40px;
+  color: #4c4c4e;
+}
+
+.add {
+  min-height: 25vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3px;
+  padding-bottom: 40px;
+
+  & .cc {
+    padding: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    color: #fff;
+    display: flex;
+    gap: 10px;
+    background-color: #fff;
+  }
+}
+
+.btn {
+  padding: 4px;
+  height: 40px;
+  width: 70px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 20px;
+  display: grid;
+  place-items: center;
+  background-color: #171d74c2;
+  color: #ffffff;
+  margin-left: 2px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  cursor: default;
+}
+
+input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+  accent-color: #171d74c2;
+}
+
+label {
+  padding: 2px;
+  min-height: 35px;
+  width: 480px;
+  display: flex;
+  place-items: center;
+  gap: 5px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 20px;
+  color: #504a4a;
+}
+
+.del {
+  display: block;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 20px;
+  display: grid;
+  place-items: center;
+  color: #4c4c4e;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  cursor: default;
+}
+
+.check {
+  cursor: pointer;
+}
+
+@media (width>=1350px) {
+  .main {
+    & #inp {
+      padding: 4px;
+      height: 66px;
+      width: 666px;
+      font-weight: 500;
+      font-size: 27px;
+      border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      -o-border-radius: 8px;
+    }
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  form {
+    padding: 4px;
+    height: 70px;
+    width: 700px;
+  }
+
+  .btn {
+    height: 60px;
+    width: 130px;
+    border-radius: 8px;
+    font-size: 25px;
+  }
+
+  .add {
+    gap: 7px;
+  }
+
+  input[type="checkbox"] {
+    height: 30px;
+    width: 30px;
+  }
+
+  label {
+    padding: 4px;
+    width: 580px;
+    gap: 8px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 25px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+  }
+
+  .del {
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 25px;
+  }
+}
+
+@media (width <=620px) {
+  .main {
+    & #inp {
+      width: 400px;
+    }
+  }
+
+  form {
+    width: 490px;
+    gap: 1px;
+  }
+
+  .add {
+    gap: 7px;
+  }
+
+  label {
+    padding: 4px;
+    width: 370px;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 25px;
+  }
+}
+
+@media (width <=500px) {
+  .main {
+    & #inp {
+      width: 300px;
+    }
+  }
+
+  form {
+    width: 390px;
+    gap: 1px;
+  }
+
+  label {
+    width: 270px;
+  }
+}
+
+@media (width <=400px) {
+  .main {
+    & #inp {
+      width: 200px;
+    }
+  }
+
+  form {
+    width: 290px;
+    gap: 6px;
+  }
+
+  label {
+    width: 170px;
+  }
+}

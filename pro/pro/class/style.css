@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  overflow: hidden;
+  outline: none;
+}
+body {
+  font-size: 62.5%;
+  height: 100vh;
+  width: 100vw;
+  background-color: #c0b6b6;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+}
+:root {
+  --bg-color: #070820f1;
+  --bg-nav: #0b0c36fb;
+  --p-blue: #070820;
+  --p-white: #dddeeb;
+  --p-black: #000000c4;
+}
+/*! ========================================================================== */
+/*  ------------------------------------#contect------------------------------ */
+/*! ========================================================================== */
+
+.contect_section {
+  /* height: 40rem; */
+  width: 100%;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contect_section h3 {
+  color: var(--bg-color);
+  font-size: 2.5rem;
+  padding: 0.9rem;
+  letter-spacing: 0.2rem;
+  text-transform: capitalize;
+  margin-left: 2.7rem;
+  font-weight: 600;
+  align-self: start;
+}
+form {
+  /* height: 30rem; */
+  width: 60%;
+  margin: 0.7rem auto;
+}
+form .contect_para {
+  color: var(--p-black);
+  font-size: 1.5rem;
+  padding: 0.9rem;
+  letter-spacing: 0.1rem;
+  text-align: justify;
+  line-height: 1.8rem;
+  font-weight: 600;
+}
+form input {
+  height: 3rem;
+  width: 92%;
+  margin: 0.6rem auto;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
+  font-size: 1.1rem;
+}
+.label {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 77%;
+  margin: auto;
+}
+form label {
+  font-size: 1.1rem;
+  text-transform: capitalize;
+}
+form input::placeholder {
+  font-size: 1.1rem;
+}
+form .submit {
+  height: 3rem;
+  width: 92%;
+  margin: 0.6rem auto;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
+  font-size: 1.5rem;
+  background-color: var(--bg-color);
+  color: var(--p-white);
+  letter-spacing: 0.1rem;
+  text-align: center;
+  text-decoration: none;
+}
+.link_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 77%;
+  height: 4rem;
+  padding: 0.5rem;
+  gap: 3rem;
+  margin-bottom: 0.5rem;
+}
+.link_div .links {
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.para {
+  color: aliceblue;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+}
+.div{
+  height: 40px;
+  width: 200px;
+ display: block;
+ margin:0 auto 40px ;
+ padding: 10px;
+ border-radius:10px ;
+ -webkit-border-radius:10px ;
+ -moz-border-radius:10px ;
+ -ms-border-radius:10px ;
+ -o-border-radius:10px ;
+ display: grid;
+ place-items: center;
+ background-color: #000000;
+ display: none;
+
+}
